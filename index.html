@@ -47,11 +47,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
     opacity: 0;
     z-index: 20;
     animation: logoFadeIn 3s forwards;
     animation-delay: 1.2s;
+    max-width: 90vw;  /* 画面からはみ出さない保険 */
   }
 
   @keyframes logoFadeIn {
