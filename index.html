@@ -14,23 +14,70 @@
     font-family: 'Yu Gothic', sans-serif;
   }
 
+  /* 背景 白 → 淡紫 */
   @keyframes bgFade {
-    from { background: #ffffff; }
-    to   { background: rgb(225, 150, 255); }
+    0%   { background: #ffffff; }
+    100% { background: #e793f8; }
   }
 
   /* 左上ロゴ */
   .site-title {
     position: fixed;
-    top: 16px;
-    left: 24px;
+    top: 20px;
+    left: 30px;
+    font-size: 28px;
     color: white;
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: 1px;
     z-index: 50;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-shadow: 0px 0px 6px rgba(255,255,255,0.6);
     opacity: 0;
-    animation: fadeIn 1.8s forwards 1.5s;
+    animation: fadeInTitle 1.8s forwards;
+    animation-delay: 1.8s;
+  }
+
+  @keyframes fadeInTitle {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* 中央の演出 */
+  .moon-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 320px;
+    z-index: 20;
+  }
+
+  .full-moon {
+    position: absolute;
+    width: 100%;
+    animation: fullMoonOut 3s forwards;
+    animation-delay: 1.5s;
+  }
+
+  /* 満月が消える */
+  @keyframes fullMoonOut {
+    0%   { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.05); }
+  }
+
+  .crescent {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    right: -10px; /* 気持ち右にズラすと三日月感が出る */
+    animation: crescentIn 3s forwards;
+    animation-delay: 1.5s;
+  }
+
+  /* 三日月が浮かび上がる */
+  @keyframes crescentIn {
+    0%   { opacity: 0; transform: scale(0.92); }
+    100% { opacity: 1; transform: scale(1); }
   }
 
   /* 右上ナビ（横並び） */
@@ -42,13 +89,15 @@
     gap: 24px;
     z-index: 30;
   }
+
   .navbar a {
     color: #ffffff;
     text-decoration: none;
     font-size: 18px;
     font-weight: 600;
     opacity: 0;
-    animation: fadeIn 1.5s forwards 1.5s;
+    animation: fadeIn 2s forwards;
+    animation-delay: 2.2s;
   }
 
   @keyframes fadeIn {
@@ -56,7 +105,7 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* 下の白ライン */
+  /* 下線 */
   .bottom-line {
     position: fixed;
     bottom: 0;
@@ -64,41 +113,45 @@
     width: 100%;
     height: 2px;
     background: white;
-    z-index: 20;
     opacity: 0;
-    animation: fadeIn 2s forwards 2s;
+    animation: fadeIn 2s forwards;
+    animation-delay: 2.6s;
   }
 
-  /* 満月画像 */
-  .moon-box {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    height: 300px;
-    transform: translate(-50%, -50%);
-    z-index: 10;
+  .content {
+    margin-top: 130vh;
+    padding: 40px;
+    color: #333;
+    font-size: 24px;
   }
 
-  .moon-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    opacity: 0;
-    animation:
-      moonFadeIn 2s forwards 0.5s,
-      moonCut 3s forwards 2s,
-      moonDim 2s forwards 5.5s;
-  }
+</style>
+</head>
+<body>
 
-  /* ① 満月が浮かぶ */
-  @keyframes moonFadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to   { opacity: 1; transform: scale(1); }
-  }
+  <!-- 左上ロゴ -->
+  <div class="site-title">SilverMoon</div>
 
-  /* ② 満月の右側を削って三日月にする（CSSマスク） */
-  @keyframes moonCut {
-    0% {
-      -webkit-mask-image: radial-gradient(circle at center, white 100%, transparent 100%);
-      mask-image: radial-grad
+  <!-- 中央：満月→三日月 -->
+  <div class="moon-box">
+    <img src="assets/満月.png" class="full-moon">
+    <img src="assets/三日月.png" class="crescent">
+  </div>
+
+  <!-- 右上ナビ -->
+  <div class="navbar">
+    <a href="#">Art</a>
+    <a href="#">Product</a>
+    <a href="#">Blog</a>
+    <a href="#">Info</a>
+  </div>
+
+  <div class="bottom-line"></div>
+
+  <div class="content">
+    <h1>ここから下に内容を作っていく</h1>
+    <p>作品一覧・世界年表・情報カードなどを追加予定。</p>
+  </div>
+
+</body>
+</html>
