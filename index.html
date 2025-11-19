@@ -2,86 +2,47 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8" />
-<title>Home</title>
+<title>Silver Moon</title>
 
 <style>
   body {
     margin: 0;
     height: 200vh; /* スクロールできるように */
     background: #ffffff;
-    animation: bgFade 3s forwards;
+    animation: bgFade 4s forwards;
     overflow-x: hidden;
     font-family: 'Yu Gothic', sans-serif;
   }
 
-  /* 背景 白 → 紫 */
+  /* 背景 白 → 淡い紫 */
   @keyframes bgFade {
-    0% { background: #ffffff; }
-    100% { background: #3b0066; }
+    0%   { background: #ffffff; }
+    100% { background: #cfc4ff; }
   }
 
-  /* 三日月アニメ */
-  .moon-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 180px;
-    height: 180px;
-    transform: translate(-50%, -50%);
-    z-index: 5;
-  }
-
-  .moon {
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    background: white;
-    border-radius: 50%;
-    animation: toCrescent 3s forwards;
-  }
-
-  /* 三日月になるアニメ（白丸 → 三日月） */
-  .moon::after {
-    content: "";
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    background: #3b0066; /* 背景と同じ色で削る */
-    border-radius: 50%;
-    right: -40px;
-    top: 0;
-    animation: cutCrescent 3s forwards;
-  }
-
-  @keyframes cutCrescent {
-    0% { right: -180px; opacity: 0; }
-    100% { right: -40px; opacity: 1; }
-  }
-
-  /* ナビバー */
+  /* ナビバー（右側・横並び） */
   .navbar {
     position: fixed;
-    top: 0;
-    right: 0;
-    padding: 20px 30px;
-    text-align: right;
-    z-index: 10;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    gap: 24px;
+    z-index: 30;
   }
 
   .navbar a {
     color: #ffffff;
     text-decoration: none;
-    display: block;
-    margin: 12px 0;
     font-size: 18px;
+    font-weight: 600;
     opacity: 0;
-    animation: fadeIn 2s forwards;
-    animation-delay: 1.6s;
+    animation: fadeIn 1.5s forwards;
+    animation-delay: 2s;
   }
 
   @keyframes fadeIn {
-    0% { opacity: 0; transform: translateX(20px); }
-    100% { opacity: 1; transform: translateX(0); }
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   /* 下の白ライン */
@@ -92,30 +53,63 @@
     width: 100%;
     height: 2px;
     background: white;
-    z-index: 10;
     opacity: 0;
     animation: fadeIn 2s forwards;
-    animation-delay: 2s;
+    animation-delay: 2.5s;
+    z-index: 20;
   }
 
-  /* コンテンツ（スクロール先） */
+  /* ロゴ＆満月 */
+  .center-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    opacity: 0;
+    animation: logoIn 3s forwards;
+    animation-delay: 1s;
+    text-align: center;
+  }
+
+  @keyframes logoIn {
+    0%   { opacity: 0; transform: translate(-50%, -45%) scale(0.9); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  }
+
+  .moon-img {
+    width: 320px;
+    opacity: 0.9;
+    filter: drop-shadow(0px 0px 12px rgba(255,255,255,0.4));
+  }
+
+  .logo-img {
+    width: 280px;
+    margin-top: -40px;
+    opacity: 0.95;
+  }
+
+  /* スクロール後のコンテンツ */
   .content {
-    margin-top: 120vh;
+    margin-top: 130vh;
     padding: 40px;
-    color: #eee;
+    color: #333;
     font-size: 24px;
   }
+
 </style>
 </head>
 
 <body>
 
-  <!-- 三日月アニメ -->
-  <div class="moon-container">
-    <div class="moon"></div>
+  <!-- 中央のロゴ＋満月 -->
+  <div class="center-box">
+    <img src="assets/満月.png" class="moon-img">
+    <br>
+    <img src="assets/サークルロゴ_透過.png" class="logo-img">
   </div>
 
-  <!-- ナビ（右側） -->
+  <!-- 右上ナビ（横並び） -->
   <div class="navbar">
     <a href="#">Art</a>
     <a href="#">Product</a>
@@ -123,13 +117,13 @@
     <a href="#">Info</a>
   </div>
 
-  <!-- 下のライン -->
+  <!-- 下の白ライン -->
   <div class="bottom-line"></div>
 
   <!-- スクロール後のコンテンツ -->
   <div class="content">
     <h1>ここから下に内容を作っていく</h1>
-    <p>今は仮だけど、作品一覧・世界年表・情報カードなどを追加していける。</p>
+    <p>作品一覧・世界年表・情報カードなどを追加予定。</p>
   </div>
 
 </body>
