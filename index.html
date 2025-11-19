@@ -1,22 +1,56 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Home</title>
   <style>
     body {
-      background: black;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-size: 32px;
+      margin: 0;
+      background: #0a0a0a;
+      color: #eee;
       font-family: sans-serif;
+    }
+    /* ナビバー */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(20, 20, 30, 0.85);
+      padding: 12px 20px;
+      display: flex;
+      gap: 20px;
+      backdrop-filter: blur(6px);
+      z-index: 10;
+    }
+    .navbar a {
+      color: #c8b6ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    /* コンテンツ */
+    .content {
+      padding-top: 80px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 20px;
     }
   </style>
 </head>
 <body>
-  ホームページ（仮）
+
+  <!-- ナビ -->
+  <div class="navbar">
+    <a href="#">Art</a>
+    <a href="#">Product</a>
+    <a href="#">Blog</a>
+    <a href="#">Info</a>
+  </div>
+
+  <!-- 中身 -->
+  <div class="content">
+    <h1>ホームページ（仮）</h1>
+    <p>ここから作り始めるよ、ご主人。</p>
+  </div>
+
 </body>
 </html>
