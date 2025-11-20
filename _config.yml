@@ -1,4 +1,4 @@
-theme: none
+theme: minima
 markdown: kramdown
 exclude:
   - README.md
