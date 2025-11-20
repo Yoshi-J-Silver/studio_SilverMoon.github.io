@@ -125,7 +125,7 @@
   /* フッター */
   .footer {
   width: 100%;
-  background: rgba(171, 220, 235, 0.4); /* 半透明の青帯 */
+  background: rgba(171, 220, 235, 1); /* 半透明の青帯 */
   padding: 16px 0;
   margin-top: 80px;
   position: relative;
