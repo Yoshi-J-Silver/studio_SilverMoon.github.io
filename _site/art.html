@@ -6,9 +6,8 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- ヘッダ -->
-    <a href="./index.html" class="site-title">Studio SilverMoon</a>
+<!-- ヘッダ -->
+  <a href="./index.html" class="site-title">Studio SilverMoon</a>
   
   <!-- 右上ナビ -->
   <div class="navbar">
@@ -21,11 +20,23 @@
 
   <div class="bottom-line"></div>
 
-  <!-- ページ固有コンテンツ -->
-  <div class="content">
-    <h1>Art</h1>
-    <p>ここに内容を書く。</p>
-  </div>
+<main class="art-main">
+<h1 class="art-title">Gallery</h1>
+<div class="art-grid">
+  <!-- サムネ追加はここに挿すだけ -->
+  <img src="./assets/art/art1.png" class="art-thumb top-face">
+  <img src="./assets/art/art2.png" class="art-thumb top-face">
+  <img src="./assets/art/art3.png" class="art-thumb top-face">
+  <img src="./assets/art/art4.png" class="art-thumb top-face">
+  <img src="./assets/art/art5.png" class="art-thumb top-face">
+  <img src="./assets/art/art6.png" class="art-thumb">
+</div>
+</main>
+
+<!-- フルスクリーン表示用 -->
+<div id="viewer" class="viewer hidden">
+  <img id="viewer-img">
+</div>
 
   <!-- フッタ -->
   <footer class="footer">
@@ -49,6 +60,7 @@
 
   </div>
 </footer>
-
+<script src="./js/art_viewer.js"></script>
 </body>
+
 </html>

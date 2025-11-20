@@ -184,6 +184,70 @@ body {
   }
 }
 /* =========================================
+   art section
+========================================= */
+.art-main {
+  padding-top: 140px;
+  padding-bottom: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+}
+
+.art-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.art-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.art-thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* ← 正方形に統一（縦横比自由に変更可） */
+  object-fit: cover;     /* ← 中心を基準にトリミング */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/*サムネ見切れたとき用 */
+.top-face {
+  object-position: top;
+}
+
+.art-thumb:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 4px 14px rgba(0,0,0,0.4);
+}
+
+.viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.viewer img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 6px;
+}
+
+.hidden {
+  display: none;
+}
+/* =========================================
    info
 ========================================= */
 .info {

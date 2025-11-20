@@ -8,18 +8,30 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<!-- ヘッダ -->
+{% include header.html %}
 
-  <!-- ヘッダ -->
-  {% include header.html %}
+<main class="art-main">
+<h1 class="art-title">Gallery</h1>
+<div class="art-grid">
+  <!-- サムネ追加はここに挿すだけ -->
+  <img src="./assets/art/art1.png" class="art-thumb top-face">
+  <img src="./assets/art/art2.png" class="art-thumb top-face">
+  <img src="./assets/art/art3.png" class="art-thumb top-face">
+  <img src="./assets/art/art4.png" class="art-thumb top-face">
+  <img src="./assets/art/art5.png" class="art-thumb top-face">
+  <img src="./assets/art/art6.png" class="art-thumb">
+</div>
+</main>
 
-  <!-- ページ固有コンテンツ -->
-  <div class="content">
-    <h1>Art</h1>
-    <p>ここに内容を書く。</p>
-  </div>
+<!-- フルスクリーン表示用 -->
+<div id="viewer" class="viewer hidden">
+  <img id="viewer-img">
+</div>
 
   <!-- フッタ -->
   {% include footer.html %}
-
+<script src="./js/art_viewer.js"></script>
 </body>
+
 </html>
