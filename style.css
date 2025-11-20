@@ -30,8 +30,9 @@ body {
 
 /* 左上タイトル（そのままOK） */
 .site-title {
+  display: inline-block;
   position: fixed;
-  top: 20px;
+  top: 30px;
   left: 30px;
   font-size: 28px;
   color: white;
@@ -44,7 +45,7 @@ body {
 /* ロゴ */
 .logo-box {
   position: fixed;
-  top: 18%;
+  top: 15%;
   left: 40%;
   transform: translateX(-50%);
   z-index: 10;
