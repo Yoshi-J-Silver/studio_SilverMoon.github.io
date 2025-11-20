@@ -1,194 +1,178 @@
+/* =========================================
+   基本設定
+========================================= */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-  html{
-    height: 100%;
-  }
-  
-  body {
-    margin: 0;
-    /*height: 200vh;*/
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    background: #ffffff;
-    animation-name: bgFade;
-    animation-duration: 1.5s;
-    animation-fill-mode: forwards;
-    overflow-x: hidden;
-    font-family: 'Yu Gothic', sans-serif;
-  }
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  animation: bgFade 1.5s forwards;
+  font-family: 'Yu Gothic', sans-serif;
+  overflow-x: hidden;
+}
 
-  main {
-    flex: 1 0 auto;
-  }
+/* 背景フェード */
+@keyframes bgFade {
+  0%   { background: #ffffff; }
+  100% { background: rgb(164, 113, 197); }
+}
 
-  /* 白 → 基本紫へのフェード */
-  @keyframes bgFade {
-    0%   { background: #ffffff; }
-    100% { background: rgb(164, 113, 197); }
-  }
 
-  /* 左上タイトル */
-  .site-title {
-    position: fixed;
-    top: 20px;
-    left: 30px;
-    font-size: 28px;
-    color: white;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-shadow: 0 0 6px rgba(255,255,255,0.7);
-    z-index: 30;
-  }
+/* =========================================
+   画面固定要素（ロゴ・キャラ）
+========================================= */
 
-  /* 月ロゴ（静止） */
-  .logo-box {
-    position: absolute;
-    top: 10%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-    z-index: 20;
-  }
+/* 左上タイトル（そのままOK） */
+.site-title {
+  position: fixed;
+  top: 20px;
+  left: 30px;
+  font-size: 28px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 6px rgba(255,255,255,0.7);
+  z-index: 30;
+}
 
-  .moon-img {
-    position: absolute;
-    width: 360px;
-    opacity: 1;
-  }
+/* ロゴ */
+.logo-box {
+  position: fixed;
+  top: 18%;
+  left: 40%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
 
-  .fog-img {
-    position: absolute;
-    width: 360px;
-    /* 最初は完全に非表示（右からマスク） */
-    opacity: 0;
-    animation: fogfade 3s ease forwards;
-    animation-delay: 4s;
-    }
-  @keyframes fogfade {
-  from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+.moon-img,
+.fog-img {
+  width: 360px;
+  position: absolute;
+}
 
-  /* キャラ */
-  .chara-box {
-     position: fixed;
-     bottom: 0;
-     right: 3%;
-     top: 3%;
-     z-index: 10;
-   }
-   
-   .chara-img {
-     height: 100vh; /* 背景に合わせて大きさ調整。DevToolsで動かせる */
-     opacity: 0;
-     transform: translateY(30px);
-     filter: blur(4px);
-     animation: charaIn 1.2s ease-out forwards;
-     animation-delay: 2.2s; /* 霧が出た後に登場 */
-   }
+.fog-img {
+  opacity: 0;
+  animation: fogfade 3s ease forwards;
+  animation-delay: 4s;
+}
 
-   @keyframes charaIn {
-    0%   { opacity: 0; transform: translateY(30px); filter: blur(4px); }
-    100% { opacity: 1; transform: translateY(0);   filter: blur(0); }
-  }
+@keyframes fogfade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 
-  /* 右上ナビ */
-  .navbar {
-    position: fixed;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    top: 20px;
-    right: 30px;
-    display: flex;
-    gap: 24px;
-    z-index: 30;
-  }
+/* キャラ（固定表示） */
+.chara-box {
+  position: fixed;
+  bottom: 0;
+  right: 3%;
+  z-index: 11;
+}
 
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
-  }
+.chara-img {
+  height: 95vh;
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(4px);
+  animation: charaIn 1.2s ease-out forwards;
+  animation-delay: 2.2s;
+}
 
-  /* 下線 */
-  .bottom-line {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 100%;
-    background: white;
-    z-index: 30;
-  }
+@keyframes charaIn {
+  0%   { opacity: 0; transform: translateY(30px); filter: blur(4px); }
+  100% { opacity: 1; transform: translateY(0);   filter: blur(0); }
+}
 
-  .content {
-    margin-top: 130vh;
-    padding: 40px;
-    color: #fff;
-    font-size: 24px;
-  }
 
-  /* フッター */
-  .footer {
+/* =========================================
+   ナビ
+========================================= */
+.navbar {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  z-index: 30;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+/* =========================================
+   コンテンツ領域
+========================================= */
+
+main {
+  flex: 1 0 auto;
+  margin-top: 100vh;
+}
+
+.content {
+  padding: 40px;
+  color: #fff;
+  font-size: 24px;
+}
+
+
+/* =========================================
+   フッター
+========================================= */
+.footer {
   flex-shrink: 0;
-  background: rgba(171, 220, 235, 1); /* 半透明の青帯 */
-  }
-  
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-  
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .footer-left p {
-    color: #fff;
-    font-size: 14px;
-    margin: 0;
-  }
-  
-  .footer-right {
-    display: flex;
-    gap: 16px;
-  }
-  
-  .sns-icon img {
-    width: 26px;
-    height: 26px;
-    opacity: 0.8;
-    transition: opacity 0.2s;
-  }
-  .cien-icon img {
-    height: 20px;
-    width: auto;
-  }
-  
-  .sns-icon img:hover {
-    opacity: 1;
-  }
-  
-  /* レイヤー調整 */
-  .logo-box,
-  .chara-box {
-    position: relative;
-    z-index: 1;
-  }
-  
-  .footer {
-    position: relative;
-    z-index: 5;
-  }
-  
-  .sns-icon {
-    display: inline-block;
-    position: relative;
-    z-index: 10;
-  }
+  background: rgba(171, 220, 235, 1);
+  padding: 16px 0;
+  position: relative;
+  z-index: 5;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 40px;
+}
+
+.footer-left p {
+  color: rgb(164, 113, 197);
+  font-size: 14px;
+  margin: 0;
+}
+
+.footer-right {
+  display: flex;
+  gap: 16px;
+}
+
+/* SNSアイコン */
+.sns-icon img {
+  width: 26px;
+  height: 26px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.cien-icon img {
+  height: 20px;
+  width: auto;
+}
+
+.sns-icon img:hover {
+  opacity: 1;
+}
