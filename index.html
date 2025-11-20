@@ -3,136 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <title>Studio-SilverMoon</title>
-
-<style>
-  body {
-    margin: 0;
-    height: 200vh;
-    background: #ffffff;
-    animation-name: bgFade;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-    overflow-x: hidden;
-    font-family: 'Yu Gothic', sans-serif;
-  }
-
-  /* 白 → 基本紫へのフェード */
-  @keyframes bgFade {
-    0%   { background: #ffffff; }
-    100% { background: rgb(164, 113, 197); }
-  }
-
-  /* 左上タイトル */
-  .site-title {
-    position: fixed;
-    top: 20px;
-    left: 30px;
-    font-size: 28px;
-    color: white;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-shadow: 0 0 6px rgba(255,255,255,0.7);
-    z-index: 30;
-  }
-
-  /* 月ロゴ（静止） */
-  .logo-box {
-    position: absolute;
-    top: 10%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-    z-index: 20;
-  }
-
-  .moon-img {
-    position: absolute;
-    width: 360px;
-    opacity: 1;
-  }
-
-  .fog-img {
-    position: absolute;
-    width: 360px;
-    /* 最初は完全に非表示（右からマスク） */
-    mask: linear-gradient(to left, transparent 0%, black 1%);
-    -webkit-mask: linear-gradient(to left, transparent 0%, black 1%);
-
-    animation: fogReveal 3s ease forwards;
-    animation-delay: 3.5s;
-    }
-  @keyframes fogReveal {
-  from {
-      mask: linear-gradient(to left, transparent 0%, black 1%);
-    }
-    to {
-      mask: linear-gradient(to left, transparent 0%, black 100%);
-    }
-  }
-
-  /* キャラ */
-  .chara-box {
-     position: fixed;
-     bottom: 0;
-     right: 3%;
-     top: 3%;
-     z-index: 10;
-   }
-   
-   .chara-img {
-     height: 100vh; /* 背景に合わせて大きさ調整。DevToolsで動かせる */
-     opacity: 0;
-     transform: translateY(30px);
-     filter: blur(4px);
-     animation: charaIn 1.2s ease-out forwards;
-     animation-delay: 3.2s; /* 霧が出た後に登場 */
-   }
-
-   @keyframes charaIn {
-    0%   { opacity: 0; transform: translateY(30px); filter: blur(4px); }
-    100% { opacity: 1; transform: translateY(0);   filter: blur(0); }
-  }
-
-  /* 右上ナビ */
-  .navbar {
-    position: fixed;
-    top: 20px;
-    right: 30px;
-    display: flex;
-    gap: 24px;
-    z-index: 30;
-  }
-
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
-  }
-
-  /* 下線 */
-  .bottom-line {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 100%;
-    background: white;
-    z-index: 30;
-  }
-
-  .content {
-    margin-top: 130vh;
-    padding: 40px;
-    color: #fff;
-    font-size: 24px;
-  }
-
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- 左上ロゴ文字 -->
-  <div class="site-title">Studio SilverMoon</div>
+  <!--ヘッダ-->
+  {% include header.html %}
 
   <!-- 中央ロゴ（固定） -->
   <div class="logo-box">
@@ -140,25 +15,17 @@
     <img src="assets/サークルロゴ_浸食_透過.png" class="fog-img">
   </div>
 
-  <!-- キャラ立ち絵 -->
+   <!-- キャラ立ち絵 -->
   <div class="chara-box">
   <img src="assets/Luna_simple.png" class="chara-img" style="margin-top: 0px;padding-top: 0px;border-top-width: 0px;border-top-style: solid;margin-bottom: 0px;">
   </div>
-
-  <!-- 右上ナビ -->
-  <div class="navbar">
-    <a href="#">Art</a>
-    <a href="#">Product</a>
-    <a href="#">Blog</a>
-    <a href="#">Info</a>
-  </div>
-
-  <div class="bottom-line"></div>
-
   <div class="content">
-    <h1>ここから本編</h1>
-    <p>世界年表、作品ツリー、キャラ、最新情報……全部ここに載せていく。</p>
+    <p>20240531 アメリアと触手エロトラップダンジョン 発売</p>
+    <p>20251114 アメリアと触手エロトラップダンジョン Steam版発売</p>
+    <p>2026xxxx アメリアと触手エロトラップダンジョン DLC鋭意制作中</p>
   </div>
 
+  <!--フッダ-->
+  {% include footer.html %} 
 </body>
 </html>

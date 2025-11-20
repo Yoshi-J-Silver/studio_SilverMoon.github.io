@@ -1,0 +1,120 @@
+
+  body {
+    margin: 0;
+    height: 200vh;
+    background: #ffffff;
+    animation-name: bgFade;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    overflow-x: hidden;
+    font-family: 'Yu Gothic', sans-serif;
+  }
+
+  /* 白 → 基本紫へのフェード */
+  @keyframes bgFade {
+    0%   { background: #ffffff; }
+    100% { background: rgb(164, 113, 197); }
+  }
+
+  /* 左上タイトル */
+  .site-title {
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    font-size: 28px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 6px rgba(255,255,255,0.7);
+    z-index: 30;
+  }
+
+  /* 月ロゴ（静止） */
+  .logo-box {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+  }
+
+  .moon-img {
+    position: absolute;
+    width: 360px;
+    opacity: 1;
+  }
+
+  .fog-img {
+    position: absolute;
+    width: 360px;
+    /* 最初は完全に非表示（右からマスク） */
+    opacity: 0;
+    animation: fogfade 3s ease forwards;
+    animation-delay: 5s;
+    }
+  @keyframes fogfade {
+  from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* キャラ */
+  .chara-box {
+     position: fixed;
+     bottom: 0;
+     right: 3%;
+     top: 3%;
+     z-index: 10;
+   }
+   
+   .chara-img {
+     height: 100vh; /* 背景に合わせて大きさ調整。DevToolsで動かせる */
+     opacity: 0;
+     transform: translateY(30px);
+     filter: blur(4px);
+     animation: charaIn 1.2s ease-out forwards;
+     animation-delay: 3.2s; /* 霧が出た後に登場 */
+   }
+
+   @keyframes charaIn {
+    0%   { opacity: 0; transform: translateY(30px); filter: blur(4px); }
+    100% { opacity: 1; transform: translateY(0);   filter: blur(0); }
+  }
+
+  /* 右上ナビ */
+  .navbar {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    gap: 24px;
+    z-index: 30;
+  }
+
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  /* 下線 */
+  .bottom-line {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: white;
+    z-index: 30;
+  }
+
+  .content {
+    margin-top: 130vh;
+    padding: 40px;
+    color: #fff;
+    font-size: 24px;
+  }
