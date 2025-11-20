@@ -1,25 +1,24 @@
 
-  html, body {
+  html{
     height: 100%;
-    margin: 0;
-    padding: 0;
   }
   
   body {
     margin: 0;
-    height: 200vh;
+    /*height: 200vh;*/
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
     background: #ffffff;
     animation-name: bgFade;
     animation-duration: 1.5s;
     animation-fill-mode: forwards;
     overflow-x: hidden;
     font-family: 'Yu Gothic', sans-serif;
-    display: flex;
-    flex-direction: column;
   }
 
   main {
-    flex: 1;
+    flex: 1 0 auto;
   }
 
   /* 白 → 基本紫へのフェード */
@@ -136,63 +135,60 @@
 
   /* フッター */
   .footer {
-  width: 100%;
+  flex-shrink: 0;
   background: rgba(171, 220, 235, 1); /* 半透明の青帯 */
-  padding: 16px 0;
-  margin-top: 80px;
-  position: relative;
-}
-
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer-left p {
-  color: #fff;
-  font-size: 14px;
-  margin: 0;
-}
-
-.footer-right {
-  display: flex;
-  gap: 16px;
-}
-
-.sns-icon img {
-  width: 26px;
-  height: 26px;
-  opacity: 0.8;
-  transition: opacity 0.2s;
-}
-.cien-icon img {
-  height: 20px;
-  width: auto;
-}
-
-.sns-icon img:hover {
-  opacity: 1;
-}
-
-/* レイヤー調整 */
-.logo-box,
-.chara-box {
-  position: relative;
-  z-index: 1;
-}
-
-.footer {
-  position: relative;
-  z-index: 5;
-}
-
-.sns-icon {
-  display: inline-block;
-  position: relative;
-  z-index: 10;
-}
+  }
+  
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-left p {
+    color: #fff;
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  .footer-right {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .sns-icon img {
+    width: 26px;
+    height: 26px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  .cien-icon img {
+    height: 20px;
+    width: auto;
+  }
+  
+  .sns-icon img:hover {
+    opacity: 1;
+  }
+  
+  /* レイヤー調整 */
+  .logo-box,
+  .chara-box {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .footer {
+    position: relative;
+    z-index: 5;
+  }
+  
+  .sns-icon {
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+  }
