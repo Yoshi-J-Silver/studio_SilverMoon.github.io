@@ -45,7 +45,7 @@ body {
 /* ロゴ */
 .logo-box {
   position: absolute;
-  top: 15%;
+  top: 10%;
   left: 40%;
   transform: translateX(-50%);
   z-index: 10;
