@@ -4,7 +4,7 @@
     height: 200vh;
     background: #ffffff;
     animation-name: bgFade;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-fill-mode: forwards;
     overflow-x: hidden;
     font-family: 'Yu Gothic', sans-serif;
