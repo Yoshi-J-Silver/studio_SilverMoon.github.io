@@ -9,7 +9,9 @@
     margin: 0;
     height: 200vh;
     background: #ffffff;
-    animation: bgFade 2.5s forwards;
+    animation-name: bgFade;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
     overflow-x: hidden;
     font-family: 'Yu Gothic', sans-serif;
   }
@@ -33,18 +35,38 @@
     z-index: 30;
   }
 
-  /* ロゴ（静止） */
+  /* 月ロゴ（静止） */
   .logo-box {
-    position: fixed;
-    top: 50%;
-    left: 50%;
+    position: absolute;
+    top: 10%;
+    left: 40%;
     transform: translate(-50%, -50%);
     z-index: 20;
   }
 
-  .logo-img {
+  .moon-img {
+    position: absolute;
     width: 360px;
     opacity: 1;
+  }
+
+  .fog-img {
+    position: absolute;
+    width: 360px;
+    /* 最初は完全に非表示（右からマスク） */
+    mask: linear-gradient(to left, transparent 0%, black 1%);
+    -webkit-mask: linear-gradient(to left, transparent 0%, black 1%);
+
+    animation: fogReveal 3s ease forwards;
+    animation-delay: 3.5s;
+    }
+  @keyframes fogReveal {
+  from {
+      mask: linear-gradient(to left, transparent 0%, black 1%);
+    }
+    to {
+      mask: linear-gradient(to left, transparent 0%, black 100%);
+    }
   }
 
   /* キャラ */
@@ -58,8 +80,17 @@
    
    .chara-img {
      height: 100vh; /* 背景に合わせて大きさ調整。DevToolsで動かせる */
-     opacity: 1;
+     opacity: 0;
+     transform: translateY(30px);
+     filter: blur(4px);
+     animation: charaIn 1.2s ease-out forwards;
+     animation-delay: 3.2s; /* 霧が出た後に登場 */
    }
+
+   @keyframes charaIn {
+    0%   { opacity: 0; transform: translateY(30px); filter: blur(4px); }
+    100% { opacity: 1; transform: translateY(0);   filter: blur(0); }
+  }
 
   /* 右上ナビ */
   .navbar {
@@ -104,8 +135,9 @@
   <div class="site-title">Studio SilverMoon</div>
 
   <!-- 中央ロゴ（固定） -->
-  <div class="logo-box" style="top: 390px;">
-    <img src="assets/サークルロゴ_透過.png" class="logo-img">
+  <div class="logo-box">
+    <img src="assets/サークルロゴ_月_透過.png" class="moon-img">
+    <img src="assets/サークルロゴ_浸食_透過.png" class="fog-img">
   </div>
 
   <!-- キャラ立ち絵 -->
