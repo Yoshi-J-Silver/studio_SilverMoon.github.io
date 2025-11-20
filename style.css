@@ -50,7 +50,7 @@
     /* 最初は完全に非表示（右からマスク） */
     opacity: 0;
     animation: fogfade 3s ease forwards;
-    animation-delay: 5s;
+    animation-delay: 4s;
     }
   @keyframes fogfade {
   from {
@@ -76,7 +76,7 @@
      transform: translateY(30px);
      filter: blur(4px);
      animation: charaIn 1.2s ease-out forwards;
-     animation-delay: 3.2s; /* 霧が出た後に登場 */
+     animation-delay: 2.2s; /* 霧が出た後に登場 */
    }
 
    @keyframes charaIn {
