@@ -121,3 +121,48 @@
     color: #fff;
     font-size: 24px;
   }
+
+  /* フッター */
+  .footer {
+  width: 100%;
+  background: rgba(171, 220, 235, 0.4); /* 半透明の青帯 */
+  padding: 16px 0;
+  margin-top: 80px;
+  position: relative;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left p {
+  color: #fff;
+  font-size: 14px;
+  margin: 0;
+}
+
+.footer-right {
+  display: flex;
+  gap: 16px;
+}
+
+.sns-icon img {
+  width: 26px;
+  height: 26px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.cien-icon img {
+  height: 20px;
+  width: auto;
+}
+
+.sns-icon img:hover {
+  opacity: 1;
+}
