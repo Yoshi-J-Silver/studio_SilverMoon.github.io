@@ -44,7 +44,7 @@ body {
 
 /* ロゴ */
 .logo-box {
-  position: fixed;
+  position: absolute;
   top: 15%;
   left: 40%;
   transform: translateX(-50%);
@@ -118,7 +118,7 @@ body {
 
 main {
   flex: 1 0 auto;
-  margin-top: 100vh;
+  margin-top: 110vh;
 }
 
 .content {
