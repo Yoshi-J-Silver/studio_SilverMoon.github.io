@@ -1,5 +1,3 @@
----
----
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -10,7 +8,18 @@
 <script src="./js/circletext_draw.js"></script>
 <body>
   <!--ヘッダ-->
-  {% include header.html %}
+    <a href="./index.html" class="site-title">Studio SilverMoon</a>
+  
+  <!-- 右上ナビ -->
+  <div class="navbar">
+    <a href="./titles.html">Titles</a>
+    <a href="./art.html">Art</a>
+    <a href="https://ci-en.dlsite.com/creator/10954" target="_blank" rel="noopener">Blog</a>
+    <a href="./about.html">About</a>
+    <a href="./contact.html">Contact</a>
+  </div>
+
+  <div class="bottom-line"></div>
 
   <main>
     <!-- 中央ロゴ（固定） -->
@@ -80,6 +89,26 @@
   </main>
 
   <!--フッダ-->
-  {% include footer.html %} 
+  <footer class="footer">
+  <div class="footer-inner">
+
+    <div class="footer-left">
+      <p>© 2025 Studio SilverMoon. All Rights Reserved.</p>
+    </div>
+
+    <div class="footer-right">
+      <a href="https://x.com/ginnodangan18" target="_blank" class="sns-icon">
+        <img src="assets/logo-black.png" alt="Twitter">
+      </a>
+      <a href="https://www.pixiv.net/users/59905327" target="_blank" class="sns-icon">
+        <img src="assets/logo_icon_r.png" alt="pixiv">
+      </a>
+      <a href="https://ci-en.dlsite.com/creator/10954" target="_blank" class="sns-icon cien-icon">
+        <img src="assets/logo_cien_web.png" alt="Ci-en">
+      </a>
+    </div>
+
+  </div>
+</footer> 
 </body>
 </html>
