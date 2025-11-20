@@ -9,55 +9,56 @@
     margin: 0;
     height: 200vh;
     background: #ffffff;
-    animation: bgFade 3.5s forwards;
+    animation: bgFade 2.5s forwards;
     overflow-x: hidden;
     font-family: 'Yu Gothic', sans-serif;
   }
 
-  /* 白 → 淡紫へ */
+  /* 白 → 基本紫へのフェード */
   @keyframes bgFade {
     0%   { background: #ffffff; }
     100% { background: rgb(164, 113, 197); }
   }
 
-  /* 左上ロゴ文字 */
+  /* 左上タイトル */
   .site-title {
     position: fixed;
     top: 20px;
     left: 30px;
     font-size: 28px;
     color: white;
-    z-index: 50;
     font-weight: 600;
-    letter-spacing: 1.6px;
-    text-shadow: 0px 0px 6px rgba(255,255,255,0.6);
-    opacity: 0;
-    animation: fadeInTitle 1.6s forwards;
-    animation-delay: 1.3s;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 6px rgba(255,255,255,0.7);
+    z-index: 30;
   }
 
-  @keyframes fadeInTitle {
-    from { opacity: 0; transform: translateY(-6px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* 中央のロゴ */
-  .center-logo {
+  /* ロゴ（静止） */
+  .logo-box {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0;
     z-index: 20;
-    animation: logoFadeIn 3s forwards;
-    animation-delay: 1.2s;
-    max-width: 90vw;  /* 画面からはみ出さない保険 */
   }
 
-  @keyframes logoFadeIn {
-    0%   { opacity: 0; transform: translate(-50%, -46%) scale(0.92); }
-    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  .logo-img {
+    width: 360px;
+    opacity: 1;
   }
+
+  /* キャラ */
+  .chara-box {
+     position: fixed;
+     bottom: 0;
+     right: 5%;
+     z-index: 10;
+   }
+   
+   .chara-img {
+     height: 80vh; /* 背景に合わせて大きさ調整。DevToolsで動かせる */
+     opacity: 1;
+   }
 
   /* 右上ナビ */
   .navbar {
@@ -70,18 +71,10 @@
   }
 
   .navbar a {
-    color: #ffffff;
+    color: white;
     text-decoration: none;
     font-size: 18px;
     font-weight: 600;
-    opacity: 0;
-    animation: fadeInNav 2s forwards;
-    animation-delay: 1.6s;
-  }
-
-  @keyframes fadeInNav {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
   }
 
   /* 下線 */
@@ -89,37 +82,35 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
     height: 2px;
+    width: 100%;
     background: white;
-    opacity: 0;
-    animation: fadeInLine 2s forwards;
-    animation-delay: 2s;
-    z-index: 20;
-  }
-
-  @keyframes fadeInLine {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    z-index: 30;
   }
 
   .content {
     margin-top: 130vh;
     padding: 40px;
-    color: #333;
+    color: #fff;
     font-size: 24px;
   }
 
 </style>
 </head>
-
 <body>
 
-  <!-- 左上テキストロゴ -->
+  <!-- 左上ロゴ文字 -->
   <div class="site-title">SilverMoon</div>
 
-  <!-- 中央ロゴ -->
-  <img src="assets/サークルロゴ_透過.png" class="center-logo">
+  <!-- 中央ロゴ（固定） -->
+  <div class="logo-box">
+    <img src="assets/サークルロゴ_透過.png" class="logo-img">
+  </div>
+
+  <!-- キャラ立ち絵 -->
+  <div class="chara-box">
+  <img src="assets/立ち絵.png" class="chara-img">
+  </div>
 
   <!-- 右上ナビ -->
   <div class="navbar">
@@ -132,8 +123,8 @@
   <div class="bottom-line"></div>
 
   <div class="content">
-    <h1>ここは情報欄</h1>
-    <p>リリース情報とか、予定とか</p>
+    <h1>ここから本編</h1>
+    <p>世界年表、作品ツリー、キャラ、最新情報……全部ここに載せていく。</p>
   </div>
 
 </body>
