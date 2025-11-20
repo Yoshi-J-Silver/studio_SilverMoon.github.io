@@ -78,7 +78,7 @@ body {
 }
 
 .chara-img {
-  height: 95vh;
+  height: 88vh;
   opacity: 0;
   transform: translateY(30px);
   filter: blur(4px);
