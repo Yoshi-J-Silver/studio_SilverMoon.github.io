@@ -22,6 +22,11 @@ body {
   overflow-x: hidden;
 }
 
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+}
 .page-wrapper {
   min-height: 100%;
   display: flex;
@@ -134,6 +139,21 @@ body {
   100% { opacity: 1; transform: translateY(10px);   filter: blur(0); }
 }
 
+@media (max-width: 768px) {
+  .chara-box {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    height: auto;
+  }
+
+  .chara-box img {
+    width: 70%;  /* ← ここで立ち絵の大きさ調整 */
+    height: auto;
+  }
+}
+
 /* 霧の流れ */
 .fog-layer {
   position: absolute;
@@ -158,6 +178,14 @@ body {
   }
   100% {
     transform: translate(-25%, -15%) scale(1.15);
+  }
+}
+
+@media (max-width: 768px) {
+  .fog-img {
+    width: 200%;
+    left: -50%;
+    top: -10%;
   }
 }
 
