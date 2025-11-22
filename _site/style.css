@@ -17,6 +17,12 @@ body {
   overflow-x: hidden;
 }
 
+.page-wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 /* 背景フェード */
 @keyframes bgFade {
   0%   { background: #ffffff; }
@@ -131,12 +137,12 @@ body {
   width: 300%;
   height: 215%;
   pointer-events: none;
-  z-index: 1; /* 一番奥側（背景の上） */
+  z-index: 1;
 
   background-image: url('./assets/fog.png');
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.18; /* 0.1〜0.25 が自然 */
+  opacity: 0.18;
 
   animation: fogMove 22s ease-in-out infinite alternate;
 }
@@ -150,22 +156,21 @@ body {
   }
 }
 
-/* 線の描画アニメーションレイヤー */
 .draw-line {
   position: fixed;
   top: 20%;
   left: -20%;
-  width: 0;              /* ← 最初は線の長さゼロ */
-  height: 3px;           /* ← 線の太さ */
-  background: white;     /* ← 線の色 */
-  opacity: 0.25;         /* ← 少し薄く */
-  transform: rotate(35deg);  /* ← 描く角度（調整可） */
-  z-index: 2;            /* 背景の霧より前・キャラより後ろ */
+  width: 0;
+  height: 3px;
+  background: white;
+  opacity: 0.25;
+  transform: rotate(35deg);  
+  z-index: 2;            
   
   animation: drawLine 3s ease-out infinite;
 }
 
-/* 線が伸びていくアニメーション */
+
 @keyframes drawLine {
   0% {
     width: 0;
@@ -175,7 +180,7 @@ body {
     opacity: 0.3;
   }
   60% {
-    width: 140%;   /* ← 画面を横切る長さまで拡大 */
+    width: 140%;
     opacity: 0.3;
   }
   100% {
@@ -212,7 +217,7 @@ body {
   overflow-x: auto;
   scroll-behavior: smooth;
   max-width: calc(480px * 3 + 20px * 2); 
-  flex-shrink: 1;         /* ← wrapperが自動で伸びるから1でOK */
+  flex-shrink: 1;
   min-width: 0; 
 }
 
@@ -229,8 +234,8 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  width: 100%;   /* ←これが正しい */
-  max-width: 1600px; /* 見た目の最大幅にだけ制限 */
+  width: 100%;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -309,8 +314,8 @@ body {
    info
 ========================================= */
 .info {
-  width: 60%;               /* ← 左寄せのために幅を狭く */
-  margin-left: 20%;          /* ← キャラを避けるため左側に寄せる */
+  width: 60%;
+  margin-left: 20%;
   padding-top: 40px;
   padding-bottom: 640px;
   color: white;
@@ -325,16 +330,13 @@ body {
   text-shadow: 0 0 4px rgba(0,0,0,0.4);
 }
 
-
-/* スクロール可能な内部コンテナ */
 .info-list {
   display: block;
-  max-height: 240px;        /* ← INFO を縦に固定（将来スクロール用） */
+  max-height: 240px;
   overflow-y: auto;
-  padding-right: 10px;      /* ← 日付がスクロールバーに隠れにくいように微調整 */
+  padding-right: 10px;
 }
 
-/* スクロールバーカスタム（控えめに） */
 .info-list::-webkit-scrollbar {
   width: 6px;
 }
@@ -353,7 +355,7 @@ body {
 }
 
 .info-date {
-  width: 120px;             /* ← 日付と本文の距離を詰めるため幅固定 */
+  width: 120px;
   font-weight: 600;
   opacity: 0.9;
 }
@@ -361,7 +363,7 @@ body {
 .info-text {
   flex: 1;
   opacity: 0.95;
-  margin-left: 16px;        /* ← 距離を少し詰める */
+  margin-left: 16px;
 }
 
 /* =========================================
@@ -369,16 +371,16 @@ body {
 ========================================= */
 /* 横スクロール製品バー */
 .title-banner-scroll {
-  padding-top: 140px;
+  height: auto;
+  padding-left: 60px;
+  padding-top: 120px;
   padding-bottom: 30px;
-  overflow-x: auto;
-  overflow-y: hidden;
   white-space: nowrap;
-  -ms-overflow-style: none;  /* IE, Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .title-banner-scroll::-webkit-scrollbar {
-  display: none; /* Chrome */
+  display: none;
 }
 
 .banner-container {
@@ -388,8 +390,8 @@ body {
 }
 
 .title-banner {
-  width: 360px;      /* 横長に変更 */
-  height: 120px;
+  width: 300px;
+  height: auto;
   object-fit: cover;
   border-radius: 14px;
   cursor: pointer;
@@ -400,6 +402,40 @@ body {
   transform: scale(1.04);
 }
 
+/* セクション区切り */
+.section-divider {
+  width: 100%;
+  height: 3px;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.highlight-glow {
+  animation: glowFlash 3s ease-out;
+}
+
+@keyframes glowFlash {
+  0% {
+    background: rgba(255, 255, 255, 0.0);
+    transform: scale(1);
+    box-shadow: none;
+  }
+  20% {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(255,255,255,0.8);
+  }
+  60% {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.01);
+    box-shadow: 0 0 12px rgba(255,255,255,0.5);
+  }
+  100% {
+    background: rgba(255, 255, 255, 0);
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
 
 /* ==============================
    タイムライン本体
@@ -422,24 +458,12 @@ body {
   opacity: 0.6;
 }
 
-/* 年表アイテム */
 .timeline-item {
   position: relative;
   margin: 80px 0;
   opacity: 0;
   transform: translateY(20px);
   animation: appear 0.8s forwards;
-}
-
-/* 点 */
-.tl-dot {
-  position: absolute;
-  left: calc(30% - 7px);
-  width: 14px;
-  height: 14px;
-  background: white;
-  border-radius: 50%;
-  box-shadow: 0 0 8px rgba(255,255,255,0.8);
 }
 
 /* 内容 */
@@ -461,15 +485,16 @@ body {
   font-size: 18px;
   white-space: nowrap;
   color: white;
+  text-decoration: none;
 }
 
 /* ==============================
-   分岐（右へ伸ばす）
+   分岐
 ================================ */
 .branch {
   position: absolute;
   margin-top: 12px;
-  left: calc(3% + 450px); 
+  left: calc(3% + 300px); 
   top: 0;
   opacity: 0.6;
 }
@@ -497,16 +522,205 @@ body {
 }
 
 #L341 .tl-text {
-  margin-left: 400px;   /* ← 好きな値で調整 */
+  margin-left: 275px;
 }
 
-/* アニメーション */
 @keyframes appear {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
+/* =========================================
+   プロダクト
+========================================= */
+.product-container {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+}
+
+.product-info {
+  flex: 0.7;
+}
+
+.product-visual {
+  position: fixed;
+  display: flex;
+  right: -30px;
+  bottom: 0;
+  z-index: 1;
+  align-items: flex-end;
+  height: calc(100vh - 150px);
+  justify-content: center;
+}
+
+.product-visual img {
+  height: 120%;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .product-container {
+    flex-direction: column;
+  }
+}
+
+/* ストアセクション */
+.store-title .store-note {
+  display: block;
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  margin-top: 4px;    /* ストアと少し距離 */
+}
+.store-links {
+  display: flex;
+  gap: 24px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.store-card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-noimage {
+  width: 240px;
+  height: 180px;
+  background: linear-gradient(135deg, #3a3a3a, #555);
+  border-radius: 12px;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 14px rgba(0,0,0,0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 視認性アップのため文字に影 */
+.card-noimage span {
+  text-shadow: 0 0 8px rgba(0,0,0,0.7);
+}
+
+.store-card img {
+  width: 240px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.dlsite-card {
+  background-image: url("https://img.dlsite.jp/modpub/images2/work/doujin/RJ01118000/RJ01117269_img_sam.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.fanza-card {
+  background-image: url("./assets/art/banner/fanza_sample.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.steam-widget {
+  width: 100%;
+  height: 100%;
+}
+
+.store-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.card-noimage:hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.07);
+}
+
+.dlsite-card {
+  width: 100%;
+  height: 100%;
+  background-image: url("./assets/art/banner/product1.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.fanza-card {
+  width: 100%;
+  height: 100%;
+  background-image: url("./assets/art/banner/product1.png"); 
+  background-size: cover;
+  background-position: center;
+}
+/* =========================================
+   サークル説明
+========================================= */
+.about-layout {
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  padding-top: 160px;
+  padding-bottom: 120px;
+  position: relative;
+}
+
+.about-text {
+  margin-left: 30%;
+  text-align: left;
+  color: white;
+}
+
+.about-text h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.about-text h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.about-text h3 {
+  font-size: 20px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+.about-text p,
+.about-text li {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+  opacity: 0.9;
+}
+
+.about-text ul {
+  margin-left: 5px;
+}
+
+.about-visual {
+  position: relative;
+  flex: 0 0 auto;
+}
+
 
 /* =========================================
    ナビ
@@ -554,6 +768,7 @@ main {
   padding: 16px 0;
   position: relative;
   z-index: 5;
+  margin-top: auto;
 }
 
 .footer-inner {
