@@ -12,16 +12,28 @@
 {% include header.html %}
 
 <main class="art-main">
-<h1 class="art-title">Gallery</h1>
-<div class="art-grid">
-  <!-- サムネ追加はここに挿すだけ -->
-  <img src="./assets/art/art1.png" class="art-thumb top-face">
-  <img src="./assets/art/art2.png" class="art-thumb top-face">
-  <img src="./assets/art/art3.png" class="art-thumb top-face">
-  <img src="./assets/art/art4.png" class="art-thumb top-face">
-  <img src="./assets/art/art5.png" class="art-thumb top-face">
-  <img src="./assets/art/art6.png" class="art-thumb">
-</div>
+  <h1 class="art-title">Character</h1>
+  <div class="art-row-wrapper">
+    <button class="arrow left">←</button>
+    <div class="art-row" id="artRow">
+      <img src="./assets/art/sum/sum3.png" class="art-thumb top-face position-fix" data-full= "./assets/art/art5.png" data-tag="game1">
+      <img src="./assets/art/sum/sum1.png" class="art-thumb top-face position-fix" data-full= "./assets/art/art1.png"data-tag="game1">
+      <img src="./assets/art/sum/sum2.png" class="art-thumb top-face position-fix" data-full= "./assets/art/art4.png"data-tag="game1">
+      <img src="./assets/art/sum/sum4.png" class="art-thumb top-face position-fix" data-full= "./assets/art/Celestia.png"data-tag="game1">
+      <img src="./assets/art/sum/sum5.png" class="art-thumb top-face position-fix" data-full= "./assets/art/elysia.png"data-tag="game1">
+      <img src="./assets/art/sum/sum6.png" class="art-thumb top-face position-fix" data-full= "./assets/art/Succubus_Queen.png"data-tag="game1">
+    </div>
+    <button class="arrow right">→</button>
+  </div>
+
+  <h1 class="art-title">Gallery</h1>
+  <div class="art-row-wrapper">
+    <button class="arrow left">←</button>
+    <div class="art-row" id="artRow">
+      <img src="./assets/art/art6.png" class="art-thumb">
+    </div>
+    <button class="arrow right">→</button>
+  </div>
 </main>
 
 <!-- フルスクリーン表示用 -->
@@ -32,6 +44,7 @@
   <!-- フッタ -->
   {% include footer.html %}
 <script src="./js/art_viewer.js"></script>
+<script src="./js/art_scroll.js"></script>
 </body>
 
 </html>

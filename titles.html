@@ -2,24 +2,107 @@
 ---
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 <meta charset="UTF-8" />
 <title>Studio-SilverMoon | Titles</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- ヘッダ -->
-  {% include header.html %}
+{% include header.html %}
 
-  <!-- ページ固有コンテンツ -->
-  <div class="content">
-    <h1>Titles</h1>
-    <p>ここに内容を書く。</p>
+<!-- ▼ 上段：横スクロール作品バナー -->
+<section class="title-banner-scroll">
+  <div class="banner-container">
+    <img src="./assets/banners/amelia1.png" class="title-banner" data-jump="L340-main">
+    <img src="./assets/banners/amelia_dlc.png" class="title-banner" data-jump="L340-dlc">
+    <img src="./assets/banners/mgnt.png" class="title-banner" data-jump="L341">
+    <img src="./assets/banners/game3.png" class="title-banner" data-jump="L342">
+    <img src="./assets/banners/whitesnake.png" class="title-banner" data-jump="L400">
+  </div>
+</section>
+
+<!-- ▼ 下段：世界年表（樹形図） -->
+<section class="timeline">
+
+  <div class="timeline-line"></div>
+
+  <!--<div class="timeline-item" id="L1">
+    <div class="tl-content">
+      <div class="tl-year">L1</div>
+      <div class="tl-text">聖国クレセント建国</div>
+    </div>
   </div>
 
-  <!-- フッタ -->
-  {% include footer.html %}
+  <div class="timeline-item" id="L60">
+    <div class="tl-content">
+      <div class="tl-year">L60</div>
+      <div class="tl-text">王国レガリア建国</div>
+    </div>
+  </div>
 
+  <div class="timeline-item" id="L126">
+    <div class="tl-content">
+      <div class="tl-year">L126</div>
+      <div class="tl-text">帝国ヴァルト建国</div>
+    </div>
+  </div>
+
+  <div class="timeline-item" id="L155">
+    <div class="tl-content">
+      <div class="tl-year">L155</div>
+      <div class="tl-text">悪徳の街・不干渉地帯成立</div>
+    </div>
+  </div>-->
+
+  <div class="timeline-item" id="L339">
+    <div class="tl-content">
+      <div class="tl-year">L339</div>
+      <div class="tl-text">聖都近郊迷宮出現</div>
+    </div>
+  </div>
+
+  <div class="timeline-item" id="L340-main">
+    <div class="tl-content">
+      <div class="tl-year">L340</div>
+      <div class="tl-text">アメリア聖都迷宮攻略</div>
+    </div>
+
+    <!-- ▼ 分岐 -->
+    <div class="branch">
+      <div class="branch-line"></div>
+      <div class="branch-down"></div>
+      <div class="branch-item">End5ルート</div>
+    </div>
+  </div>
+
+  <div class="timeline-item" id="L340-dlc">
+    <div class="tl-content">
+      <div class="tl-year">L340</div>
+      <div class="tl-text">色欲魔王迷宮攻略</div>
+    </div>
+  </div>
+
+  <div class="timeline-item" id="L341">
+    <div class="tl-content">
+      <div class="tl-year">L341</div>
+      <div class="tl-text">聖都近郊迷宮事件</div>
+    </div>
+  </div>
+
+  <div class="timeline-item" id="L342">
+    <div class="tl-content">
+      <div class="tl-year">L342</div>
+      <div class="tl-text">憤怒魔王悪街襲来事件</div>
+    </div>
+  </div>
+
+</section>
+
+{% include footer.html %}
+
+<script src="./js/titles.js"></script>
 </body>
 </html>

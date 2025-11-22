@@ -189,7 +189,7 @@ body {
 .art-main {
   padding-top: 140px;
   padding-bottom: 80px;
-  max-width: 1200px;
+  max-width: calc(480px * 3 + 20px * 2 + 200);
   margin: 0 auto;
   color: white;
 }
@@ -205,18 +205,76 @@ body {
   gap: 20px;
 }
 
+.art-row {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  max-width: calc(480px * 3 + 20px * 2); 
+  flex-shrink: 1;         /* ← wrapperが自動で伸びるから1でOK */
+  min-width: 0; 
+}
+
+.art-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.art-row::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.3);
+  border-radius: 4px;
+}
+
+.art-row-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;   /* ←これが正しい */
+  max-width: 1600px; /* 見た目の最大幅にだけ制限 */
+  margin: 0 auto;
+}
+
+.arrow {
+  display: inline-flex;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+  z-index: 10;
+}
+
+.arrow:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+.left {
+  margin-right: 10px;
+}
+.right {
+  margin-left: 10px;
+}
+
 .art-thumb {
-  width: 100%;
-  aspect-ratio: 1 / 1;   /* ← 正方形に統一（縦横比自由に変更可） */
-  object-fit: cover;     /* ← 中心を基準にトリミング */
+  width: 480px;
+  height: 640px;
+  object-fit: cover;
   border-radius: 8px;
   cursor: pointer;
+  flex-shrink: 0; 
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/*サムネ見切れたとき用 */
 .top-face {
   object-position: top;
+}
+
+.position-fix {
+  object-fit: none;
+  object-position: 50% 0%;
 }
 
 .art-thumb:hover {
@@ -304,6 +362,150 @@ body {
   flex: 1;
   opacity: 0.95;
   margin-left: 16px;        /* ← 距離を少し詰める */
+}
+
+/* =========================================
+   title section
+========================================= */
+/* 横スクロール製品バー */
+.title-banner-scroll {
+  padding-top: 140px;
+  padding-bottom: 30px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -ms-overflow-style: none;  /* IE, Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.title-banner-scroll::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+.banner-container {
+  display: flex;
+  gap: 24px;
+  padding: 8px 20px;
+}
+
+.title-banner {
+  width: 360px;      /* 横長に変更 */
+  height: 120px;
+  object-fit: cover;
+  border-radius: 14px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.title-banner:hover {
+  transform: scale(1.04);
+}
+
+
+/* ==============================
+   タイムライン本体
+================================ */
+.timeline {
+  width: 100%;
+  max-width: 900px;
+  margin: 0;
+  padding-bottom: 140px;
+  position: relative;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  left: 6%;
+  width: 3px;
+  height: 100%;
+  background: white;
+  opacity: 0.6;
+}
+
+/* 年表アイテム */
+.timeline-item {
+  position: relative;
+  margin: 80px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: appear 0.8s forwards;
+}
+
+/* 点 */
+.tl-dot {
+  position: absolute;
+  left: calc(30% - 7px);
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255,255,255,0.8);
+}
+
+/* 内容 */
+.tl-content {
+  margin-left: 8%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  white-space: nowrap;
+}
+
+.tl-year {
+  font-size: 18px;
+  white-space: nowrap;
+  color: white;
+}
+
+.tl-text {
+  font-size: 18px;
+  white-space: nowrap;
+  color: white;
+}
+
+/* ==============================
+   分岐（右へ伸ばす）
+================================ */
+.branch {
+  position: absolute;
+  margin-top: 12px;
+  left: calc(3% + 450px); 
+  top: 0;
+  opacity: 0.6;
+}
+
+.branch-line {
+  width: 150px;
+  height: 3px;
+  background: white;
+  margin-bottom: 4px;
+}
+
+.branch-down {
+  width: 3px;
+  height: 190px;
+  background: white;
+  margin-top: -7px;
+  margin-left: 150px;
+}
+
+.branch-item {
+  margin-left: 160px;
+  margin-top: -110px;
+  color: white;
+  font-size: 16px;
+}
+
+#L341 .tl-text {
+  margin-left: 400px;   /* ← 好きな値で調整 */
+}
+
+/* アニメーション */
+@keyframes appear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =========================================
