@@ -1,10 +1,6 @@
 /* =========================================
    基本設定
 ========================================= */
-favicon.ico
-favicon-32x32.png
-favicon-16x16.png
-apple-touch-icon.png
 
 html, body {
   height: 100%;
@@ -20,6 +16,10 @@ body {
   animation: bgFade 1.5s forwards;
   font-family: 'Yu Gothic', sans-serif;
   overflow-x: hidden;
+}
+
+body.top-page {
+  animation-duration: 3s;  /* ← ここだけ3秒 */
 }
 
 @media (max-width: 768px) {
@@ -117,6 +117,14 @@ body {
   to   { opacity: 1; }
 }
 
+@media (max-width: 768px) {
+  .fog-img {
+    width: 200%;
+    left: -50%;
+    top: -10%;
+  }
+}
+
 /* キャラ（固定表示） */
 .chara-box {
   position: fixed;
@@ -148,7 +156,7 @@ body {
     height: auto;
   }
 
-  .chara-box img {
+  .chara-img {
     width: 70%;  /* ← ここで立ち絵の大きさ調整 */
     height: auto;
   }
@@ -178,14 +186,6 @@ body {
   }
   100% {
     transform: translate(-25%, -15%) scale(1.15);
-  }
-}
-
-@media (max-width: 768px) {
-  .fog-img {
-    width: 200%;
-    left: -50%;
-    top: -10%;
   }
 }
 
@@ -844,3 +844,4 @@ main {
 .sns-icon img:hover {
   opacity: 1;
 }
+
