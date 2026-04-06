@@ -59,45 +59,13 @@ body.top-page {
   text-decoration: none;
 }
 
-/* 概要説明 */
-.circle-text {
-  position: absolute;
-  top: 18%;
-  left: 49.5%;
-  transform: translateX(-50%);
-  width: 260px;
-  height: 130px;
-  pointer-events: none;
-}
-
-.circle-text span {
-  position: absolute;
-  left: 50%;
-  top: 0%;
-  font-size: 14px;
-  color: rgba(255,255,255,0.85);
-  transform-origin: 0 120px;
-  opacity: 0;
-  animation: fadeLetter 0.8s forwards;
-  animation-delay: 5s;
-}
-
-@keyframes fadeLetter {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 /* ロゴ */
 .logo-box {
   position: absolute;
-  top: 10%;
-  left: 40%;
-  transform: translateX(-50%);
-  z-index: 10;
+  top: 10vw;
+  left: 40vw;
+  width: 360px;
+  height: 360px;  /* ← これを追加 */
 }
 
 .moon-img,
@@ -122,6 +90,36 @@ body.top-page {
     width: 200%;
     left: -50%;
     top: -10%;
+  }
+}
+
+/* 副題の文字 */
+.circle-text {
+  position: absolute;
+  left: 50%;
+  top: 51%;
+  margin-top: 12px;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.85);
+  font-size: clamp(12px, 1.2vw, 16px);
+  letter-spacing: 0.18em;
+  white-space: nowrap;
+  text-align: center;
+  opacity: 0;
+  animation: fadeText 1.2s forwards;
+  animation-delay: 3.8s;
+  z-index: 11;
+  pointer-events: none;
+}
+
+@keyframes fadeText {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 }
 
@@ -157,14 +155,14 @@ body.top-page {
   }
 
   .chara-img {
-    width: 70%;  /* ← ここで立ち絵の大きさ調整 */
+    width: 30%;  /* ← ここで立ち絵の大きさ調整 */
     height: auto;
   }
 }
 
 /* 霧の流れ */
 .fog-layer {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 300%;
