@@ -6,6 +6,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  max-width: 100%;
 }
 
 body {
@@ -22,11 +23,6 @@ body.top-page {
   animation-duration: 3s;  /* ← ここだけ3秒 */
 }
 
-@media (max-width: 768px) {
-  body {
-    overflow-x: hidden;
-  }
-}
 .page-wrapper {
   min-height: 100%;
   display: flex;
@@ -38,7 +34,6 @@ body.top-page {
   0%   { background: #ffffff; }
   100% { background: rgb(164, 113, 197); }
 }
-
 
 /* =========================================
    画面固定要素（ロゴ・キャラ）
@@ -83,14 +78,6 @@ body.top-page {
 @keyframes fogfade {
   from { opacity: 0; }
   to   { opacity: 1; }
-}
-
-@media (max-width: 768px) {
-  .fog-img {
-    width: 200%;
-    left: -50%;
-    top: -10%;
-  }
 }
 
 /* 副題の文字 */
@@ -143,21 +130,6 @@ body.top-page {
 @keyframes charaIn {
   0%   { opacity: 0; transform: translateY(40px); filter: blur(4px); }
   100% { opacity: 1; transform: translateY(10px);   filter: blur(0); }
-}
-
-@media (max-width: 768px) {
-  .chara-box {
-    position: static;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    height: auto;
-  }
-
-  .chara-img {
-    width: 30%;  /* ← ここで立ち絵の大きさ調整 */
-    height: auto;
-  }
 }
 
 /* 霧の流れ */
@@ -595,11 +567,6 @@ body.top-page {
   opacity: 0.8;
 }
 
-@media (max-width: 768px) {
-  .product-container {
-    flex-direction: column;
-  }
-}
 
 /* ストアセクション */
 .store-title .store-note {
@@ -773,7 +740,6 @@ body.top-page {
   font-weight: 600;
 }
 
-
 /* =========================================
    コンテンツ領域
 ========================================= */
@@ -788,7 +754,6 @@ main {
   color: #fff;
   font-size: 24px;
 }
-
 
 /* =========================================
    フッター
@@ -826,6 +791,16 @@ main {
   margin-right: 32px;
 }
 
+/* ハンバーガーボタン（PC時は非表示） */
+.menu-btn {
+  display: none;
+}
+
+/* ドロワー */
+.drawer {
+  display: none;
+}
+
 /* SNSアイコン */
 .sns-icon img {
   width: 26px;
@@ -843,3 +818,164 @@ main {
   opacity: 1;
 }
 
+/* =========================================
+   タブレット（～1024px）
+========================================= */
+@media (max-width: 1024px) {
+  .logo-box {
+    left: 30vw;
+  }
+
+  .info {
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+
+/* =========================================
+   スマホ（～768px）
+========================================= */
+@media (max-width: 768px) {
+
+  /* ナビ */
+  .navbar {
+    gap: 12px;
+    right: 24px;
+    font-size: 14px;
+  }
+
+  /* ロゴ */
+  .logo-box {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 60vw;
+    height: 60vw;
+    margin: 20px auto 0;
+  }
+
+  .moon-img,
+  .fog-img {
+    width: 100%;
+    position: absolute;
+  }
+
+  /* circle-text */
+  .circle-text {
+    font-size: 12px;
+  }
+
+  /* main（上の余白をリセット） */
+  main {
+    margin-top: 0;
+    padding-top: 80px;
+  }
+
+  /* キャラ */
+  .chara-box {
+    display: none;
+  }
+
+  .chara-img {
+    height: auto;
+    width: 50vw;
+  }
+
+  /* info */
+  .info {
+    width: 90%;
+    margin-left: 5%;
+    padding-bottom: 40px;
+  }
+
+  /* フッター */
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 0 16px;
+  }
+
+  .footer-right {
+    margin-right: 0;
+  }
+
+  /* ハンバーガーボタン（PC時は非表示） */
+  .menu-btn {
+    display: none;
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  /* ドロワー */
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 240px;
+    height: 100vh;
+    background: rgba(40, 20, 60, 0.95);
+    z-index: 200;
+    padding: 60px 24px 24px;
+    transition: right 0.3s ease;
+  }
+  
+  .drawer.open {
+    right: 0;
+  }
+  
+  .drawer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .drawer a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .drawer-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  /* 背景暗幕 */
+  .drawer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 150;
+  }
+  
+  .drawer-overlay.open {
+    display: block;
+  }
+  
+  /* スマホ・タブレットで切り替え */
+  @media (max-width: 1024px) {
+    .navbar { display: none; }
+    .menu-btn { display: block; }
+    .drawer { display: block; }
+  }
+}

@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Studio-SilverMoon | アメリアと触手エロトラップダンジョン DLC</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -30,7 +31,24 @@
     <a href="./contact.html">Contact</a>
   </div>
 
+  <!-- ハンバーガーボタン（スマホ・タブレット） -->
+  <button class="menu-btn" id="menuBtn">&#9776;</button>
+  
+  <!-- ドロワー -->
+  <nav class="drawer" id="drawer">
+    <button class="drawer-close" id="drawerClose">&#10005;</button>
+    <ul>
+      <li><a href="./titles.html">History</a></li>
+      <li><a href="./art.html">Art</a></li>
+      <li><a href="https://ci-en.dlsite.com/creator/10954" target="_blank" rel="noopener">Blog</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
   <div class="bottom-line"></div>
+  <script src="./js/menuBtnDrawer.js"></script>
 
   <!-- ページ固有コンテンツ -->
   <div class="content">
